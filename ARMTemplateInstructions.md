@@ -1,17 +1,12 @@
----
-title: ARM template to create Experimentation setup 
-description: How to use CLI and ARM template to create Experimentation setup
-author: muksvso    
-ms.author: mubatra
-ms.service: azure-app-configuration
-ms.topic: how-to 
-ms.date: 22/03/2024
-ms.custom: template-how-to
----
-
 # Use ARM template for Experimentation resources
 
-This article will help you set up the Experimentation pipeline depicted in this [Figure](./how-to-setup-experimentation.md#how-does-experimentation-work-in-azure-app-configuration). You will be using Azure CLI and ARM template for the Azure resources setup, and then use the Azure portal flow to create Feature flags and experiments.
+This article will help you set up the Experimentation pipeline depicted in this [Figure](./README.md#experimentation-in-azure-app-configuration). You will be using Azure CLI and ARM template for the Azure resources setup, and then use the Azure portal flow to create Feature flags and experiments.
+
+## Overview
+
+-	Prerequisites – Azure Subscription, Azure CLI <br />
+- 	Set up Enterprise App in Entra ID for accesing data from Split SaaS <br/>
+- 	Deploy ARM template to create and configure the Azure resources required for experimentation <br />
 
 ## Prerequisites
 
