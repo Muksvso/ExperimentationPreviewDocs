@@ -4,7 +4,6 @@ Split Experimentation for Azure App Configuration is a feature that allows devel
 
 ## Overview
 
--	How does experimentation in Azure App Configuration work? <br />
 -	Prerequisites – Azure Subscription, Azure App Configuration store <br />
 - Steps
 	- Step 1: Add Application Insights resource to App Configuration store <br />
@@ -13,17 +12,11 @@ Split Experimentation for Azure App Configuration is a feature that allows devel
 	- Step 4: Create an application (Quickstart), make changes to application code <br />
 	- Step 5: Setup an Experiment on App Configuration Portal <br />
 	- Step 6: Getting Experiment results <br />
--	Additional Links
+-	Additional Resources
 	- Data Access Control - how-to-setup-data-access-experimentation.md
-	- ARM Template
-	- QuickStart: Sample App - Quote of the Day
-	- Known Issues and Troubleshooting
-
-### How does experimentation work in Azure App Configuration?
- 
-To help introduce experimentation into your existing Azure resources, this new feature is an integrated offering by Split built on top of App Config and App Insights. As you go through this tutorial for setting up your first experiment, the key steps include setting up your App Config store including Variant Feature Flags, connecting your application to App Insights for definition of event data and metric mapping to be used for your experiment, and creating a Split Experimentation Workspace resource that will generate results powered by the Split SaaS on Azure.
-
-![Mapping Diagram](./Images/1.png)
+	- ARM Template Instructions - ARMTemplateInstructions.md
+	- QuickStart: Sample App - Quote of the Day folder
+	- Known Issues and Troubleshooting - known-issues-and-troubleshooting.md
 
 ### Data Access Control 
 You use a Microsoft Entra Enterprise Application to manage the users and groups who can access the results of your experiment(s). If your group already uses an Enterprise Application, you may contact the administrator of your group to add you to the users of it. Otherwise, you can [follow the instructions to create an Enterprise Application now](how-to-setup-data-access-experimentation-app-config.md) or follow the instructions below that will prompt you to create an Enterprise Application later. 
