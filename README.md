@@ -1,16 +1,18 @@
 # Welcome to the Private Preview of experimentation in Azure App Configuration!
 
-Split Experimentation for Azure App Configuration allows developers to easily test different variants of a feature and monitor the impact at the feature-level. Once configured, users will be able to analyze each individual feature, compare different variants, and quickly learn if product changes are making things better or worse. With this, development teams gain quantifiable insights that enable faster, safer product releases. This experience is powered by the combined use of Azure App Configuration, Application Insights and Split Experimentation Workspace. To get started on your first experiment on Azure, follow the steps outlined in this documentation.
+Split Experimentation for Azure App Configuration allows developers to easily test different variants of a feature and monitor the impact at the feature-level. Once configured, users will be able to analyze each individual feature, compare different variants, and promptly assess relevant metrics for new product changes. This capability empowers development teams with measurable insights, facilitating quicker and safer product deployments. This functionality is facilitated through the integration of Azure App Configuration, Application Insights, and the Split Experimentation Workspace. . To get started on your first experiment on Azure, follow the steps outlined in this documentation.
 
 ## Experimentation in Azure App Configuration
  
-To help introduce [experimentation](https://github.com/Muksvso/ExperimentationPreviewDocs?tab=readme-ov-file#what-is-experimentation) into your existing Azure resources, this new feature is an integrated offering by Split built on top of App Config and App Insights. As you go through this tutorial for setting up your first experiment, the key steps include setting up your App Config store including Variant Feature Flags, connecting your application to App Insights for definition of event data and metric mapping to be used for your experiment, and creating a Split Experimentation Workspace resource that will generate results powered by the Split SaaS on Azure.
+This new feature [experimentation](https://github.com/Muksvso/ExperimentationPreviewDocs?tab=readme-ov-file#what-is-experimentation) in Azure App Configuration is built by integrating App configuration with App Insights and Split. As you go about setting up your first experiment, the key steps include creating and configuring the Azure resource setup for the experimentation flow. Below diagram depicts the Azure resources for experimentation and the high-level data flow for experiments. 
 
-![Mapping Diagram](./Images/1.png)
+![Resources Diagram](./Images/1.png)
+Fig 1) Azure resource setup for experimentation
 
 ### Getting Started
 
-To use the Azure Portal to set up your first experiment, refer to the document [how to set up experimentation in Azure App Configuration](/how-to-setup-experimentation.md) which will allow you to create an experiment, setup metrics for results, create a QuickStart application to run the experiment on, and setup data access policies. To use CLI or ARM Template instead, refer to the document [ARM Template Instructions](/ARMTemplateInstructions.md).
+- To use the Azure Portal for end to end set up for experimenttaion, refer to the document [how to set up experimentation in Azure App Configuration](/how-to-setup-experimentation.md), this will help you with creating the required resources and allow you to create an experiment, define metrics for experiments, create a QuickStart application to run the experiment. 
+- To use CLI or ARM Template instead for creating and configuring the Azure resources, refer to the document [ARM Template Instructions](/ARMTemplateInstructions.md). Once you have set up the required resources using the provided ARM template, you will be using Azure Portal for setting up an experiment complete with metrics definition, and checking results.
 
 ---
 
