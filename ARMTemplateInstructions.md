@@ -23,7 +23,7 @@ This article will help you set up the Experimentation pipeline depicted in this 
 
 ## Enterprise app for Data access policy
 
-First step is to create and configure the Entra ID's Enterprise App setup. This Entra ID app is used for accessing the Data plane of the Split SaaS from App Configuration and Split Experimentation Workspace. ARM template for experimentation requires the App ID generated in this step.
+First step is to either download or clone this repo. Then we will create and configure the Entra ID's Enterprise App setup. This Entra ID app is used for accessing the Data plane of the Split SaaS from App Configuration and Split Experimentation Workspace. ARM template for experimentation requires the App ID generated in this step.
 
 - To create the Enterprise app registration for data access from Split
   
@@ -39,7 +39,7 @@ First step is to create and configure the Entra ID's Enterprise App setup. This 
 
 	![Manifest](./Images/ManifestMenu.png)
 
-- Replace the entire manifest with the content copied from manifest.json in the repo. Edit the manifest with the values copied in previous step. Following edits are to be made :
+-  Go to the downloaded contents of [ARM template](./ARMTemplate/). Replace the entire manifest in portal with the content copied from the downloaded manifest.json. Make following edits in the manifest with the corresponding values copied in previous step :
     1. "id" on line 2
     1. "appId" on line 7
     1. Add the "appId" on line 43 resulting in `api://$appId`.
@@ -83,7 +83,7 @@ First step is to create and configure the Entra ID's Enterprise App setup. This 
 		az group create --location <location> --name <resource_group_name>
 	```
 
-- Update the ExperimentationPreviewParams.json file for the ARM template in ExperimentationPreviewTemplate.json. In ExperimentationPreviewParams.json, edit the value for "SEWEntraApplicationId" with the `application id` saved in the App registration step. Update the "RGname" parameter to have the name of the resource group you created in previous step. Run the deployment command on cli.
+- Check the downloaded files from the [ARM Template(./ARMTemplate)] folder, it has two more jsons, a parameters file for the ARM template and the template itself. Open ExperimentationPreviewParams.json, edit the value for "SEWEntraApplicationId" with the `application id` saved in the App registration step. Update the "RGname" parameter to have the name of the resource group you created in previous step. Run the deployment command on cli.
 
 	```azurecli-interactive
 	        az deployment group create --resource-group <resource_group_name> --template-file <templatefile> --parameters <paramsfile>
