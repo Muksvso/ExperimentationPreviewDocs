@@ -1,6 +1,6 @@
 # Use ARM template for Experimentation resources
 
-This article will help you set up the Experimentation pipeline depicted in this [Figure](./README.md#experimentation-in-azure-app-configuration). You will be using Azure CLI and ARM template for the Azure resources setup, and then use the Azure portal flow to create Feature flags and experiments.
+This article will help you set up the Experimentation pipeline depicted in this [Figure](./README.md#experimentation-in-azure-app-configuration#experimentation-in-azure-app-configuration). You will be using Azure CLI and ARM template for the Azure resources setup, and then use the Azure portal flow to create Feature flags and experiments.
 
 ## Overview
 
@@ -12,7 +12,7 @@ This article will help you set up the Experimentation pipeline depicted in this 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet). Owner or Contributor and UserAdminAccess roles in the Azure subscription. This subscription should be whitelisted by Microsoft Product team to run Experimentation.
 
-- You will need [Azure CLI](/cli/azure/install-azure-cli) installed. Sign in to Azure using the `az login` command in Azure CLI. This command will prompt your web browser to launch and load an Azure sign-in page. If the browser fails to open, use device code flow with `az login --use-device-code`. For more sign in options, go to [sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+- You will need [Azure CLI](https://learn.microsoft.com//cli/azure/install-azure-cli) installed. Sign in to Azure using the `az login` command in Azure CLI. This command will prompt your web browser to launch and load an Azure sign-in page. If the browser fails to open, use device code flow with `az login --use-device-code`. For more sign in options, go to [sign in with the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli).
 
 ---
 
