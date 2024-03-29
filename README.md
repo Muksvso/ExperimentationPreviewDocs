@@ -1,4 +1,4 @@
-# Welcome to the Private Preview of experimentation in Azure App Configuration!
+#Private Preview of experimentation in Azure App Configuration
 
 Split Experimentation for Azure App Configuration allows developers to easily test different variants of a feature and monitor the impact at the feature-level. Once configured, users will be able to analyze each individual feature, compare different variants, and promptly assess relevant metrics for new product changes. This capability empowers development teams with measurable insights, facilitating quicker and safer product deployments. This functionality is facilitated through the integration of Azure App Configuration, Application Insights, and the Split Experimentation Workspace. . To get started on your first experiment on Azure, follow the steps outlined in this documentation.
 
