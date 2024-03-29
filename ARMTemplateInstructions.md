@@ -30,18 +30,18 @@ First step is to either download or clone this repo. Then we will create and con
 	```azurecli-interactive
 		az ad sp create --id <objectid>
 	```
-- Check for the created application registration in **Entra Id -> App Registrations** on Azure portal. Go to **Manifest** blade, update the 'isEnabled' on line 35 to false, save the manifest. Copy the following values from the manifest,  `id` at line2, `appId` at line 7 and `name` at line 26, keep these values for use in next steps.
+- Check for the created application registration in **Entra Id -> App Registrations** on Azure portal. Go to **Manifest** blade, check the `isEnabled` on line 35 if it is true, update it to false and save the manifest. Copy the following values from the manifest,  `id` at line2, `appId` at line 7 and `name` at line 26, keep these values for use in next steps.
 
 	![Manifest](./Images/ManifestMenu.png)
 
 -  Go to the downloaded contents of [ARM template](./ARMTemplate/). Replace the entire manifest in portal with the content copied from the downloaded manifest.json. Make following edits in the manifest with the corresponding values copied in previous step :
     1. "id" on line 2
     1. "appId" on line 7
-    1. Add the "appId" on line 43 resulting in `api://$appId`.
+    1. Add the "appId" on line 43 resulting in `api://<appId>`.
     1. "name" of the app registration on line 55.
-        Save the manifest. You should see a manifest updated message.
+        Save the manifest. You should see the manifest updated message, "Successfully updated application".
 
-- Copy the following snippet on line 81, in the `preAuthorizedApplications`, and click save. You should get a manifest updated message.
+- Add the following snippet on line 81, in the `preAuthorizedApplications`, and click save. You should get the manifest updated message, "Successfully updated application".
 	```json
 	{
 		"appId": "d3e90440-4ec9-4e8b-878b-c89e889e9fbc",
@@ -66,7 +66,7 @@ First step is to either download or clone this repo. Then we will create and con
 
 	![Overview](./Images/Overview_EApp.png)
 
--  In the Enterprise Application, you can now assign the users and/or groups to the app-roles in the application.
+-  In the Enterprise Application, add the users or groups who need to have access to Experimentation and assign them the role of `ExperimentationDataOwner` to create or edit experiments and metrics or `ExperimentationDataReader` to only read experiments and their results.
 
    	![Users and groups](./Images/UsersinEapp.png)
 
