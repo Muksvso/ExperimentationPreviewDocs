@@ -74,15 +74,22 @@ using Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore;
 Under where `builder.Configuration.AddAzureAppConfiguration` is called, add:
 
 ```
-        // Add Application Insights telemetry.
-        builder.Services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
-            {
-                ConnectionString = builder.Configuration.GetConnectionString("AppInsights")
-            })
-            .AddSingleton<ITelemetryInitializer, TargetingTelemetryInitializer>();
+// Add Application Insights telemetry.
+builder.Services.AddApplicationInsightsTelemetry(
+    new ApplicationInsightsServiceOptions
+    {
+        ConnectionString = builder.Configuration.GetConnectionString("AppInsights"),
+        EnableAdaptiveSampling = false
+    })
+    .AddSingleton<ITelemetryInitializer, TargetingTelemetryInitializer>();
 ```
 
-This adds Application Insights Telemetry Client to the application. It also includes a singleton TargetingTelemetryInitializer which appends Targeting information to each outgoing telemetry event
+This snippet performs the following actions.
+
+ * Adds an Application Insights Telemetry Client to the application.
+ * Adds a telemetry initializer that appends targeting information to outgoing telemetry.
+ * Disables adaptive sampling.
+   * Refer to [the known issues documentation](../known-issues-and-troubleshooting.md#Sampling-in-Application-Insights) for more information on why adaptive sampling is disabled.
 
 ---
 
