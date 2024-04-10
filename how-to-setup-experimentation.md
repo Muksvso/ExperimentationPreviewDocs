@@ -43,7 +43,7 @@ Once you have added your Application Insights resource to the App Configuration 
 **Resource group:** Select an existing resource group or create a new one for the resource.<br/>
 **Resource name:** Enter a unique name for the resource.<br/>
 **Region:** Select the region where you want to deploy the resource.<br/>
-**Pricing plan:** Currently only one pricing plan is supported (Pay As You Go).
+**Pricing plan:** Currently only one pricing plan is supported (Private Preview Free Trial).
 
 Select “Next”.
 

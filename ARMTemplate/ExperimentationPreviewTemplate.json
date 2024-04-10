@@ -2,9 +2,6 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "RGname":{
-            "type": "string"
-        },
         "LAWname": {
             "type": "string"
         },
@@ -83,10 +80,6 @@
         "loganalyticsworkspaceResourceId": "[resourceId('microsoft.operationalinsights/workspaces', concat (parameters('LAWname'), parameters('UniqueName')))]",
         "splitWorkspaceResourceId": "[resourceId('SplitIO.Experimentation/experimentationWorkspaces', concat (parameters('SEWname'), parameters('UniqueName')))]",
         "appInsightsResourceId": "[resourceId('microsoft.insights/components', concat (parameters('AIname'), parameters('UniqueName')))]",
-        "workspaceId":"[concat('/subscriptions/', subscription().subscriptionId, '/resourcegroups/',parameters('RGname'),'/providers/microsoft.operationalinsights/workspaces/', parameters('LAWname'), parameters('UniqueName')) ]",                 
-        "storageId":"[concat('/subscriptions/', subscription().subscriptionId, '/resourcegroups/',parameters('RGname'),'/providers/Microsoft.Storage/storageAccounts/', substring(concat(parameters('SAname'), parameters('UniqueName')), 0, 20)) ]",
-        "appInsightsId":"[concat('/subscriptions/', subscription().subscriptionId, '/resourcegroups/',parameters('RGname'),'/providers/Microsoft.insights/components/', parameters('AIname'), parameters('UniqueName')) ]",       
-        "splitworkspaceid":"[concat('/subscriptions/', subscription().subscriptionId, '/resourcegroups/',parameters('RGname'),'/providers/SplitIO.Experimentation/experimentationWorkspaces/', parameters('SEWname'), parameters('UniqueName')) ]",
         "storageBlobReaderRole": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '2a2b9908-6ea1-4ae2-8e65-a410df84e7d1')]",
         "dataplaneEndpoint":"[concat(parameters('DPendpoint'),parameters('SEWname'), parameters('UniqueName'))]"
         
@@ -130,7 +123,7 @@
                      ],
                 "properties": {
                     "destination": {
-                     "resourceId": "[variables('storageId')]"
+                     "resourceId": "[variables('storageAccountResourceId')]"
                     },
                     "tableNames": [
                         "AppEvents"
@@ -155,7 +148,7 @@
             "Application_Type": "[parameters('AItype')]",
             "Flow_Type": "Bluefield",
             "Request_Source": "[parameters('AIrequestSource')]",
-            "WorkspaceResourceId": "[variables('workspaceId')]"
+            "WorkspaceResourceId": "[variables('loganalyticsworkspaceResourceId')]"
         }
             
     },
@@ -180,8 +173,8 @@
             },
             "dataSource": {
                 "logAnalytics": {
-                    "resourceId": "[variables('workspaceId')]",
-                    "storageAccountResourceId": "[variables('storageId')]",
+                    "resourceId": "[variables('loganalyticsworkspaceResourceId')]",
+                    "storageAccountResourceId": "[variables('storageAccountResourceId')]",
                     "enabled": "[parameters('SEWdataSourceEnabled')]"
                 }
             }
@@ -197,7 +190,7 @@
             "principalId": "[reference(variables('splitWorkspaceResourceId'), '2024-03-01-preview', 'Full').identity.principalId]",
             "principalType": "ServicePrincipal"
         },
-        "scope": "[variables('storageId')]"
+        "scope": "[variables('storageAccountResourceId')]"
     },
 
     {
@@ -216,19 +209,13 @@
             "enablePurgeProtection": "[parameters('AACenablePurgeProtection')]",
             "disableLocalAuth": "[parameters('AACdisableLocalAuth')]",
             "telemetry": {
-            "resourceId": "[variables('appInsightsId')]"
+            "resourceId": "[variables('appInsightsResourceId')]"
             },
         "experimentation": {
-            "resourceId": "[variables('splitworkspaceid')]",
+            "resourceId": "[variables('splitWorkspaceResourceId')]",
             "dataPlaneEndpoint": "[variables('dataplaneEndpoint')]"
             }
         }   
     }
-
-    
- 
-           
-
-
-    ]
+]
 }
