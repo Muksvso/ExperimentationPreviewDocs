@@ -38,9 +38,9 @@ This creates another user secret that holds the connection string for App Insigh
 
 ```
 <PackageReference Include="Microsoft.Azure.AppConfiguration.AspNetCore" Version="8.0.0-preview.2" />
-<PackageReference Include="Microsoft.FeatureManagement.Telemetry.ApplicationInsights" Version="4.0.0-preview2" />
-<PackageReference Include="Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore" Version="4.0.0-preview2" />
-<PackageReference Include="Microsoft.FeatureManagement.AspNetCore" Version="4.0.0-preview2" />
+<PackageReference Include="Microsoft.FeatureManagement.Telemetry.ApplicationInsights" Version="4.0.0-preview3" />
+<PackageReference Include="Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore" Version="4.0.0-preview3" />
+<PackageReference Include="Microsoft.FeatureManagement.AspNetCore" Version="4.0.0-preview3" />
 ```
 
 This adds the latest preview versions of the Feature Management and App Configuration SDKs as required packages.
@@ -141,7 +141,7 @@ This class declares how FeatureManagement's targeting gets the context for a use
 8. Navigate back to Program.cs and add the following using statements.
 
 ```
-using Microsoft.FeatureManagement.Telemetry.ApplicationInsights;
+using Microsoft.FeatureManagement.Telemetry;
 using Microsoft.FeatureManagement;
 using QuoteOfTheDay;
 ```
